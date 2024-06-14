@@ -1,0 +1,77 @@
+Scenario: Opening the compose email window
+sql
+Copy code
+Given the user is logged into their Gmail account
+When the user clicks on the "Compose" button
+Then the compose email window should appear
+Scenario: Adding a recipient
+sql
+Copy code
+Given the compose email window is open
+When the user enters an email address in the "To" field
+Then the email address should appear in the "To" field
+And the entered email address should be valid
+Scenario: Adding a subject
+sql
+Copy code
+Given the compose email window is open
+When the user enters a subject in the "Subject" field
+Then the subject should appear in the "Subject" field
+Scenario: Adding email body text
+sql
+Copy code
+Given the compose email window is open
+When the user enters text in the email body
+Then the text should appear in the email body
+Scenario: Attaching a file
+sql
+Copy code
+Given the compose email window is open
+When the user clicks on the "Attach files" button
+And selects a file to attach
+Then the file should appear as an attachment in the compose window
+Scenario: Sending an email
+sql
+Copy code
+Given the compose email window is open
+And the "To" field contains a valid email address
+And the email body contains text
+When the user clicks on the "Send" button
+Then the email should be sent
+And the user should see a confirmation message
+Scenario: Saving a draft
+sql
+Copy code
+Given the compose email window is open
+When the user clicks on the "Close" button
+And the user selects "Save & close" when prompted
+Then the email should be saved as a draft
+And the draft should be visible in the "Drafts" folder
+Scenario: Discarding a draft
+sql
+Copy code
+Given the compose email window is open
+When the user clicks on the "Discard" button
+Then the email should be discarded
+And the compose email window should close
+Scenario: Using formatting options
+vbnet
+Copy code
+Given the compose email window is open
+When the user selects text in the email body
+And the user clicks on a formatting option (e.g., bold, italic, underline)
+Then the selected text should be formatted accordingly
+Scenario: Adding a CC recipient
+sql
+Copy code
+Given the compose email window is open
+When the user clicks on the "CC" button
+And the user enters an email address in the "CC" field
+Then the email address should appear in the "CC" field
+Scenario: Adding a BCC recipient
+sql
+Copy code
+Given the compose email window is open
+When the user clicks on the "BCC" button
+And the user enters an email address in the "BCC" field
+Then the email address should appear in the "BCC" field
